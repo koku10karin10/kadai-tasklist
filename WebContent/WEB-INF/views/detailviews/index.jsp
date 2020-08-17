@@ -2,10 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="../layout/app.jsp">
+    <c:param name="content">
+        <h2>All Tasks</h2>
+        <ul>
+            <c:forEach var="task" items="${tasks}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/show?id=${tasks.id}">
+                        <c:out value="${tasks.id}"></c:out>
+                    </a>
+                    :<c:out value="${tasks.content}"></c:out>
+
+                </li>
+
+            </c:forEach>
+        </ul>
+        <p><a href="${pageContext.request.contextPath}/new">Add task</a></p>
 
 
-
-
-
-
+    </c:param>
 </c:import>
