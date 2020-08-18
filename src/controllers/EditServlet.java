@@ -40,9 +40,10 @@ public class EditServlet extends HttpServlet {
         //CSRF対策
         request.setAttribute("_token", request.getSession().getId());
 
-        //タスクIDをセッションスコープに登録
-        request.getSession().setAttribute("task_id", tl.getId());
-
+        //タスクデータがある時のみタスクIDをセッションスコープに登録
+        if(tl != null){
+            request.getSession().setAttribute("task_id", tl.getId());
+        }
 
         //リクエストスコープに取得したデータを格納して、edit.jspへ
         request.setAttribute("task", tl);

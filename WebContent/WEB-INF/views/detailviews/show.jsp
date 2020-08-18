@@ -4,6 +4,8 @@
 
 <c:import url="../layout/app.jsp">
   <c:param name="content">
+    <c:choose>
+    <c:when test="${tl != null}">
     <h2><c:out value = "${tl.id}" />のタスクの詳細</h2>
     <table>
       <tbody>
@@ -36,5 +38,10 @@
         }
     }
     </script>
+    </c:when>
+    <c:otherwise>
+        <h2>お探しのデータはございません。</h2>
+    </c:otherwise>
+    </c:choose>
   </c:param>
 </c:import>

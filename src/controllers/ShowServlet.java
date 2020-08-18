@@ -41,9 +41,10 @@ public class ShowServlet extends HttpServlet {
 
         em.close();
         //リクエストスコープに該当データを格納する
-        request.setAttribute("tl", tl);
-        System.out.println(tl.getCreated_at());
-        System.out.println(tl.getUpdated_at());
+        if(tl != null){
+            request.setAttribute("tl", tl);
+        }
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/detailviews/show.jsp");
         rd.forward(request, response);
