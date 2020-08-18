@@ -27,7 +27,14 @@
 
     <form method="post" action="${pageContext.request.contextPath}/destroy?id=${tl.id}">
         <input type="hidden" name="_token" value="${_token}" />
-        <button type="submit">タスクを削除する</button>
+        <button onclick="confirmDestroy();" type="submit">タスクを削除する</button>
     </form>
+    <script>
+    function confirmDestroy(){
+        if(confirm("このタスクを削除してもよろしいですか？")){
+            document.forms[1].submit();
+        }
+    }
+    </script>
   </c:param>
 </c:import>
