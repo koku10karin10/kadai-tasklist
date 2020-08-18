@@ -5,7 +5,7 @@
     <c:param name="content">
         <h2>新規タスク作成</h2>
 
-        <form method="post" action="${pageContext.request.contextPath}/create>">
+        <form method="post" action="${pageContext.request.contextPath}/create">
             <c:import url="../layout/form.jsp" />
         </form>
 
