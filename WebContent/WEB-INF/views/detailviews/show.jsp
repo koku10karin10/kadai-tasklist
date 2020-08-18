@@ -22,10 +22,10 @@
         </tr>
       </tbody>
     </table>
-    <a href="${pageContext.request.contextPath}/edit">修正する</a><br />
+    <a href="${pageContext.request.contextPath}/edit?id=${tl.id}">修正する</a><br />
     <a href="${pageContext.request.contextPath}/index">一覧へ戻る</a>
 
-    <form method="post" action="${pageContext.request.contextPath}/destroy">
+    <form method="post" action="${pageContext.request.contextPath}/destroy?id=${tl.id}">
         <input type="hidden" name="_token" value="${_token}" />
         <button type="submit">タスクを削除する</button>
     </form>
