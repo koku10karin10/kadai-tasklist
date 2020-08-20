@@ -46,6 +46,8 @@ public class DestroyServlet extends HttpServlet {
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");
+        }else{
+            System.out.println("destroyElse");
         }
     }
 

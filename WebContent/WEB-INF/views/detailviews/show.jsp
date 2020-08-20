@@ -25,17 +25,24 @@
       </tbody>
     </table>
     <a href="${pageContext.request.contextPath}/edit?id=${tl.id}">修正する</a><br />
-    <a href="${pageContext.request.contextPath}/index">一覧へ戻る</a>
+    <p><a href="${pageContext.request.contextPath}/index">一覧へ戻る</a></p>
 
-    <form method="post" action="${pageContext.request.contextPath}/destroy?id=${tl.id}">
-        <input type="hidden" name="_token" value="${_token}" />
-        <button onclick="confirmDestroy();" type="submit">タスクを削除する</button>
-    </form>
-    <script>
-    function confirmDestroy(){
-        if(confirm("このタスクを削除してもよろしいですか？")){
-            document.forms[1].submit();
-        }
+
+
+        <form method = "POST" name="destroy" action = "${pageContext.request.contextPath}/destroy?id=${tl.id}">
+        <p><input type ="button" onclick = "confirmDestroy();"  value="このタスクを削除する"></p>
+            <input type = "hidden" name = "_token" value = "${_token}" />
+
+        </form>
+        <script>
+        function confirmDestroy(){
+            if(confirm("このタスクを削除してよろしいですか？")){
+
+                document.destroy.action="${pageContext.request.contextPath}/destroy?id=${tl.id}";
+                document.destroy.method="POST";
+                document.destroy.submit();
+
+            }
     }
     </script>
     </c:when>
